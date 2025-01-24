@@ -1,0 +1,196 @@
+
+#########################################################################################
+[LABORATION] Path finder
+##
+## Important note: This is a machine-readable config file that will be read using 
+## the Python 'configparser' library: https://docs.python.org/3/library/configparser.html
+##
+## Please follow these rules when editing this file:
+##  1. Only write your answer where there is a [...] stub.
+##  2. Multiline answers must be indented.
+##  3. Don't change anything else.
+#########################################################################################
+
+# Which programming language did you implement in? 
+# (Write only Java, Python, or PyPy)
+
+Language: Java
+
+
+# Who are you?
+
+Group members: 
+    Savinjith Walisadeera
+    Elmer Svendenkrans
+    Elias Guedra
+
+
+#########################################################################################
+[PART 1] Simple UCS
+#########################################################################################
+
+# List the number of loop iterations, minimal cost, and a shortest path 
+# (i.e. a path having minimal cost) when running UCS on the following problems:
+
+# ... the shortest path from Lund to Kiruna in the graph `AdjacencyGraph/citygraph-SE.txt`
+
+Q1a:
+    Loop iterations: 5427
+    Cost of path:    1826
+    Number of edges: 31
+    Solution path:   Lund --[16]--> Löddeköpinge --[69]--> Hjärnarp --[52]--> Åled --[6]--> Oskarström --[22]--> ...
+                     --[68]--> Storuman --[71]--> Sorsele --[233]--> Jokkmokk --[93]--> Gällivare --[121]--> Kiruna
+
+# ... the n-puzzle solution from `/HFG/BED/C_A/` to `/ABC/DEF/GH_/`
+
+Q1b:
+    Loop iterations: 483540
+    Cost of path:    31
+    Number of edges: 31
+    Solution path:   /HFG/BED/C_A/ --> /HFG/BED/CA_/ --> /HFG/BE_/CAD/ --> /HF_/BEG/CAD/ --> /H_F/BEG/CAD/ --> ... 
+                     --> /AEB/D_C/GHF/ --> /A_B/DEC/GHF/ --> /AB_/DEC/GHF/ --> /ABC/DE_/GHF/ --> /ABC/DEF/GH_/
+
+# ... the shortest path from 23:161 to 130:211 in the graph `GridGraph/AR0011SR.txt`
+
+Q1c:
+    Loop iterations: 159327
+    Cost of path:    366.40
+    Number of edges: 308
+    Solution path:   23:161 --[1]--> 23:160 --[1]--> 23:159 --[1]--> 23:158 --[1]--> 23:157 --[1]--> ...
+                     --[1,41]--> 132:207 --[1,41]--> 131:208 --[1]--> 131:209 --[1,41]--> 130:210 --[1]--> 130:211
+
+
+#########################################################################################
+[PART 2] Word ladder
+#########################################################################################
+
+# List the number of loop iterations, minimal cost, and a shortest path 
+# (i.e. a path having minimal cost) when running UCS on the following problem:
+
+# ... the shortest word ladder from "syster" to "broder" using the dictionary `WordLadder/swedish-saldo.txt`
+
+Q2a:
+    Loop iterations: 71182
+    Cost of path:    11
+    Number of edges: 11
+    Solution path:   syster --> sylter --> sylten --> synten --> synden --> ...
+                     --> bauden --> bruden --> bröden --> bröder --> broder
+
+
+#########################################################################################
+[PART 3] A*
+#########################################################################################
+
+# List the number of loop iterations and the minimal cost when running A* on the following problems:
+
+# ... the n-puzzle solution from `/HFG/BED/C_A/` to `/ABC/DEF/GH_/`
+
+Q3a:
+    Loop iterations: 11013
+    Cost of path:    31
+
+# ... the n-puzzle solution from `/HGF/BED/C_A/` to `/ABC/DEF/GH_/`
+
+Q3b:
+    Loop iterations: 483841
+    Cost of path: Could not find path.
+
+
+#########################################################################################
+[PART 4] Guessing the cost
+#########################################################################################
+
+# List the number of loop iterations and the minimal cost when running A* on the following problems:
+
+# ... the shortest path from 23:161 to 130:211 in the graph `GridGraph/AR0011SR.txt`
+
+Q4a:
+    Loop iterations: 95160
+    Cost of path:    366.40
+
+# ... the shortest word ladder from "syster" to "broder" using the dictionary `WordLadder/swedish-saldo.txt`
+
+Q4b:
+    Loop iterations: 7055
+    Cost of path:    11
+
+
+#########################################################################################
+[PART 5] Reflections
+#########################################################################################
+
+# For each of the three classes GridGraph, WordLadder, and NPuzzle,
+# what is the approximate improvement factor in the number of loop iterations 
+# by running A* instead of UCS? Try a number of different examples per class.
+
+Q5a:
+    GridGraph:  [...]
+    WordLadder: [...]
+    NPuzzle:    [...]
+
+
+# For which of the three classes GridGraph, WordLadder, and NPuzzle, did the 
+# heuristic guessCost have the most impact? What do you think is the reason for this?
+
+Q5b:
+    [...]
+
+
+# What are the main differences between your implementations of `searchAstar` and `searchUCS`?
+
+Q5c:
+    [...]
+
+
+# What's the asymptotic worst-case complexity of `WordLadder.outgoingEdges`
+# in the alphabet size K and the length N of the given word? Justify your answer.
+# (You can assume that searching in sets and dictionaries are constant time, O(1))
+
+Q5d:
+    O(N*K)
+
+
+#########################################################################################
+[APPENDIX] General information
+#########################################################################################
+
+# Approximately how many hours did you spend on the assignment, per group member?
+
+Hours:
+    6
+
+
+# Are there any known bugs or limitations?
+
+Bugs:
+    [...]
+
+Limitations:
+    [...]
+
+
+# Did you collaborate with any other students on this lab?
+# 
+#   If so, please write in what way you collaborated and with whom.
+#   Also include any resources (including the web) that you may
+#   have used in creating your design.
+
+Collaborations: 
+    [...]
+
+
+# Describe any serious problems you encountered.
+
+Problems: 
+    [...]
+
+
+# List any other comments here.
+#
+#   Feel free to provide any feedback on how much you learned
+#   from doing the assignment, and whether you enjoyed it.
+
+Comments: 
+    [...]
+
+

@@ -1,0 +1,251 @@
+#########################################################################################
+[LABORATION] Text indexing
+##
+## Important note: This is a machine-readable config file that will be read using 
+## the Python 'configparser' library: https://docs.python.org/3/library/configparser.html
+##
+## Please follow these rules when editing this file:
+##  1. Only write your answer where there is a [...] stub.
+##  2. Multiline answers must be indented.
+##  3. Don't change anything else.
+#########################################################################################
+
+# Which programming language did you implement in? 
+# (Write only Java, Python, or PyPy)
+
+Language: Java
+
+
+# Who are you?
+
+Group members: 
+    Elmer Svedenkrans
+    Elias Guedra
+    Savinjith Walisadeera
+
+#########################################################################################
+[PART 1] Perform some linear searches
+#########################################################################################
+
+# Search for the following strings using the linear search option,
+# in the largest text file you have (e.g., bnc-larger.txt.gz).
+# 
+# For each search, write down how many matches you get and how long time each query takes.
+# (If there are many matches it's enough if you just write that there are many of them.)
+
+
+# Search for "and"
+
+Q1a:
+    Text file:   bnc-larger.txt.gz
+    N:o matches: 132 208
+    Query time:  21.55 seconds, 0.33 seconds if the results aren't printed 
+
+# Seach for "20th-century"
+
+Q1b:
+    Text file:   bnc-larger.txt.gz
+    N:o matches: 4
+    Query time:  0.30 seconds 
+
+# Q1c. Search for "this-does-not-exist"
+
+Q1c:
+    Text file:   bnc-larger.txt.gz
+    N:o matches: 0
+    Query time:  0.27 seconds
+
+
+#########################################################################################
+[PART 2] Create a suffix array manually
+#########################################################################################
+
+# Create a suffix array from the string "SIRAPIPARIS". How does it look like?
+
+Q2a:
+    [ (3, "APIPARIS"),
+      (7, "ARIS"),
+      (5, "IPARIS"),
+      (9, "IS"),
+      (1, "IRAPIPARIS"),
+      (6, "PARIS"),
+      (4, "PIPARIS"),
+      (2, "RAPIPARIS"),
+      (8, "RIS"),
+      (10, "S"),
+      (0, "SIRAPIPARIS") ]
+
+# Now create a suffix array from the string "AAAAAAAAAA". How does it look like?
+
+Q2b:
+    [ (9, "A"),
+      (8, "AA"),
+      (7, "AAA"),
+      (6, "AAAA"),
+      (5, "AAAAA"),
+      (4, "AAAAAA"),
+      (3, "AAAAAAA"),
+      (2, "AAAAAAAA"),
+      (1, "AAAAAAAAA"),
+      (0, "AAAAAAAAAA") ]
+
+
+#########################################################################################
+[PART 3] Insertion sort
+#########################################################################################
+
+# How long time does it take to insertion sort the suffix array for each of the tiny files?
+# (bnc-tinyest, bnc-tinyer, bnc-tiny, and possibly bnc-smallest, or even bnc-smaller)
+
+Q3a:
+    bnc-tinyest: 0.17 seconds
+    bnc-tinyer: 0.17 seconds
+    bnc-tiny: 0.28 seconds
+    bnc-smallest: 1.11 seconds
+    bnc-smaller: 7.86 seconds
+    bnc-small: 87.04 seconds
+
+
+#########################################################################################
+[PART 4] Quicksort
+#########################################################################################
+
+# How long time does it take to quicksort the suffix array 
+# for each of the three largest BNC files that you tried?
+
+Q4a:
+    bnc-medium: 1.42 seconds
+    bnc-large: 5.73 seconds
+    bnc-larger: 20.04 seconds
+
+
+#########################################################################################
+[PART 5] Binary search in the suffix array
+#########################################################################################
+
+# Why do you think the search results are not shown in increasing order of position?
+
+Q5a:
+    We get the values in alphabetical order with respect to the sufixes which are not the same as the order of position.
+
+# How long time does it take to search for a non-existing string using linear search, 
+# and using binary search, respectively?
+# (Don't include the time it takes to read the text and the index)
+
+Q5b:
+    0.94 seconds for linear and 0.00 seconds for binary in the file bnc-largest.
+
+
+#########################################################################################
+[PART 6] Multi-key quicksort
+#########################################################################################
+
+# How long time does it take for Quicksort and Multikey Quicksort, respectively, 
+# to sort the suffix array for the largest BNC files that you tried?
+
+Q6a:
+    20.04 seconds for Quicksort and 8.68 seconds for Multikey Quicksort.
+
+
+#########################################################################################
+[PART 7] Empirical complexity analysis
+#########################################################################################
+
+# Deduce the empirical complexity of your three sorting implementations.
+# You can, e.g., use a curve fitting tool such as the `scipy` package in Python,
+# or an online tool such as <http://curve.fit/>
+
+# A. InsertionSort
+
+Q7a:
+    Expected complexity: [O(n^2)]
+    Actual complexity: [O(n^2)]
+    How did you calculate this complexity?
+        [We used curve.fit and found the complexity by fitting a polynomial.]
+
+# B. Quicksort
+
+Q7b:
+    Expected complexity: [O(n*log(n))]
+    Actual complexity: [O(n) or O(n*log(n))]
+    How did you calculate this complexity?
+        [We used curve.fit and found the complexity by fitting a polynomiall, we tried to fit O(n*log(n)) and found a questionable but deecent fit.]
+
+# C. MultikeyQuicksort
+
+Q7c:
+    Expected complexity: [n*log(n)]
+    Actual complexity: [n*log(n)]
+    How did you calculate this complexity?
+        [We used curve.fit and found the complexity by fitting a polynomial,  we tried to fit O(n*log(n)) and found a good fit.]
+
+# Finally, vary the size of the alphabet. You can do this for only Quicksort if you want.
+# How does the sorting time change depending on the size of the alphabet?
+# (Note: don't try 1-letter alphabets for this question.)
+
+Q7d:
+    How much faster/slower is it if you use ten letters (e.g. "ABCDEFGHIK")? 
+        [With 10 letters  and 10 milion charachters it takes 5.48 seconds.]
+
+    How much faster/slower is it if you use only two letters (e.g., "AB")? 
+        [With 10 letters  and 10 milion charachters it takes 15,74 seconds.]
+
+# Why do you think sorting becomes faster/slower when you use different alphabet sizes?
+
+Q7e:
+    [The fewer letters we have in our alphabet the more comparisons we will have to do to distinguish between letters.]
+
+# (Optional question) Now you can try a 1-letter alphabet (e.g. "A") if you want.
+
+Q7f:
+    What happens when you sort a text consisting of only "A"s? 
+        [...]
+
+    Why do you think it behaves so much different from other alphabet sizes? 
+        [...]
+
+
+#########################################################################################
+[APPENDIX] General information
+#########################################################################################
+
+# Approximately how many hours did you spend on the assignment, per group member?
+
+Hours:
+    [20]
+
+
+# Are there any known bugs or limitations?
+
+Bugs:
+    [Robograder finds our implementation of insertion sort to have wrong complexity due to us using binary search instead of swapping to find the insertion position.]
+
+Limitations:
+    []
+
+
+# Did you collaborate with any other students on this lab?
+# 
+#   If so, please write in what way you collaborated and with whom.
+#   Also include any resources (including the web) that you may
+#   have used in creating your design.
+
+Collaborations: 
+    []
+
+
+# Describe any serious problems you encountered.
+
+Problems: 
+    [...]
+
+
+# List any other comments here.
+#
+#   Feel free to provide any feedback on how much you learned
+#   from doing the assignment, and whether you enjoyed it.
+
+Comments: 
+    [...]
+
+
